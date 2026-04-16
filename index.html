@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siddhesh Chavan &mdash; Internship Review 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;900&family=Red+Hat+Text:wght@400;500;600;700&family=Red+Hat+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rh-red:          #ee0000;
+      --rh-red-hover:    #be0000;
+      --rh-red-10:       #fce3e3;
+      --rh-red-05:       #fef0f0;
+      --rh-black:        #151515;
+      --rh-white:        #ffffff;
+      --rh-gray-10:      #f2f2f2;
+      --rh-gray-20:      #e0e0e0;
+      --rh-gray-30:      #c7c7c7;
+      --rh-gray-40:      #a3a3a3;
+      --rh-gray-50:      #707070;
+      --rh-gray-60:      #4d4d4d;
+      --rh-gray-70:      #383838;
+      --rh-gray-80:      #292929;
+      --rh-gray-90:      #1f1f1f;
+      --rh-gray-95:      #151515;
+      --rh-teal-50:      #37a3a3;
+      --rh-teal-60:      #147878;
+      --rh-purple-50:    #5e40be;
+      --rh-purple-60:    #3d2785;
+      --rh-blue-50:      #0066cc;
+      --rh-blue-40:      #4394e5;
+      --rh-orange-40:    #f5921b;
+      --rh-green-50:     #63993d;
+      --rh-green-60:     #3d7317;
+      --rh-green-10:     #e9f7df;
+      --rh-yellow-30:    #ffcc17;
+
+      --shadow-sm: 0 1px 2px 0 rgba(21,21,21,.12);
+      --shadow-md: 0 4px 8px 0 rgba(21,21,21,.12);
+      --shadow-lg: 0 8px 24px 0 rgba(21,21,21,.18);
+
+      --radius:    3px;
+      --radius-lg: 8px;
+
+      --font-display: 'Red Hat Display', sans-serif;
+      --font-text:    'Red Hat Text', sans-serif;
+      --font-mono:    'Red Hat Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-text);
+      color: var(--rh-gray-95);
+      background: var(--rh-gray-10);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      background: var(--rh-gray-95);
+      color: var(--rh-white);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      right: -20%;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(238,0,0,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 80px 48px 64px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--rh-red);
+      background: rgba(238,0,0,.12);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 1.15;
+      margin-bottom: 12px;
+      max-width: 720px;
+    }
+
+    .hero h1 span { color: var(--rh-red); }
+
+    .hero-sub {
+      font-size: 1.125rem;
+      color: var(--rh-gray-30);
+      max-width: 560px;
+      margin-bottom: 32px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      font-size: .875rem;
+      color: var(--rh-gray-40);
+    }
+
+    .hero-meta strong { color: var(--rh-white); font-weight: 600; }
+
+    /* ── Sticky nav ── */
+    .toc {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--rh-white);
+      border-bottom: 1px solid var(--rh-gray-20);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .toc-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .toc-inner::-webkit-scrollbar { display: none; }
+
+    .toc a {
+      display: block;
+      padding: 14px 18px;
+      font-family: var(--font-text);
+      font-size: .8125rem;
+      font-weight: 600;
+      color: var(--rh-gray-60);
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+
+    .toc a:hover {
+      color: var(--rh-red);
+      border-bottom-color: var(--rh-red);
+    }
+
+    /* ── Main content ── */
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 48px 96px;
+    }
+
+    section { scroll-margin-top: 56px; }
+
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: .6875rem;
+      font-weight: 500;
+      color: var(--rh-red);
+      letter-spacing: .06em;
+      margin-bottom: 8px;
+      padding-top: 64px;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.75rem;
+      line-height: 1.3;
+      color: var(--rh-gray-95);
+      margin-bottom: 24px;
+    }
+
+    h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.25rem;
+      line-height: 1.3;
+      color: var(--rh-gray-95);
+      margin: 32px 0 12px;
+    }
+
+    p, li { max-width: 70ch; }
+    p + p { margin-top: 16px; }
+
+    /* ── Cards ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: var(--rh-white);
+      border-radius: var(--radius-lg);
+      padding: 28px 28px 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--rh-gray-20);
+      transition: box-shadow .2s, transform .15s;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .card-eyebrow {
+      font-family: var(--font-mono);
+      font-size: .6875rem;
+      font-weight: 500;
+      color: var(--rh-gray-50);
+      margin-bottom: 8px;
+    }
+
+    .card h4 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: var(--rh-gray-95);
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: .875rem;
+      color: var(--rh-gray-60);
+      line-height: 1.5;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-family: var(--font-text);
+      font-size: .6875rem;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-top: 12px;
+    }
+
+    .tag-done    { background: var(--rh-green-50); color: var(--rh-white); }
+    .tag-epic    { background: var(--rh-purple-50); color: var(--rh-white); }
+    .tag-active  { background: var(--rh-orange-40); color: var(--rh-white); }
+    .tag-story   { background: var(--rh-blue-50); color: var(--rh-white); }
+
+    /* ── Stats bar ── */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1px;
+      background: var(--rh-gray-20);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin: 32px 0;
+    }
+
+    .stat {
+      background: var(--rh-white);
+      padding: 24px 28px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 2rem;
+      line-height: 1.1;
+      color: var(--rh-gray-95);
+    }
+
+    .stat-value.accent { color: var(--rh-red); }
+
+    .stat-label {
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--rh-gray-50);
+      margin-top: 4px;
+    }
+
+    /* ── Timeline ── */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+      margin: 32px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: var(--rh-gray-20);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 32px;
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -32px;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--rh-white);
+      border: 3px solid var(--rh-red);
+      z-index: 1;
+    }
+
+    .timeline-item.active::before {
+      border-color: var(--rh-orange-40);
+      background: #fff7ed;
+    }
+
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      color: var(--rh-gray-50);
+      margin-bottom: 4px;
+    }
+
+    .timeline-item h4 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--rh-gray-95);
+      margin-bottom: 4px;
+    }
+
+    .timeline-item p {
+      font-size: .875rem;
+      color: var(--rh-gray-60);
+    }
+
+    /* ── Feedback quote ── */
+    blockquote {
+      position: relative;
+      margin: 24px 0;
+      padding: 20px 28px;
+      background: var(--rh-red-05);
+      border-left: 4px solid var(--rh-red);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      font-size: .9375rem;
+      color: var(--rh-gray-70);
+      line-height: 1.6;
+      max-width: 70ch;
+    }
+
+    blockquote cite {
+      display: block;
+      margin-top: 8px;
+      font-size: .8125rem;
+      font-style: normal;
+      font-weight: 600;
+      color: var(--rh-gray-50);
+    }
+
+    /* ── Table ── */
+    .rh-table-wrap {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .875rem;
+      background: var(--rh-white);
+    }
+
+    thead th {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: .8125rem;
+      color: var(--rh-white);
+      background: var(--rh-gray-95);
+      text-align: left;
+      padding: 12px 16px;
+      white-space: nowrap;
+    }
+
+    tbody td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--rh-gray-20);
+      color: var(--rh-gray-70);
+      vertical-align: top;
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: var(--rh-gray-10); }
+
+    .key-link {
+      font-family: var(--font-mono);
+      font-size: .8125rem;
+      font-weight: 500;
+      color: var(--rh-blue-50);
+      text-decoration: underline;
+    }
+
+    /* ── Status badges ── */
+    .status-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: .6875rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .status-done         { background: var(--rh-green-10); color: var(--rh-green-60); }
+    .status-in-progress  { background: #fff7ed; color: #b45309; }
+    .status-verification { background: #ede9fe; color: var(--rh-purple-60); }
+    .status-todo         { background: var(--rh-gray-10); color: var(--rh-gray-60); }
+
+    /* ── Checklist ── */
+    .checklist {
+      list-style: none;
+      margin: 16px 0;
+    }
+
+    .checklist li {
+      position: relative;
+      padding-left: 28px;
+      padding-bottom: 10px;
+      font-size: .9375rem;
+      color: var(--rh-gray-70);
+    }
+
+    .checklist li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--rh-green-10);
+      border: 2px solid var(--rh-green-50);
+    }
+
+    .checklist li::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 8px;
+      width: 8px;
+      height: 4px;
+      border-left: 2px solid var(--rh-green-60);
+      border-bottom: 2px solid var(--rh-green-60);
+      transform: rotate(-45deg);
+    }
+
+    /* ── Highlight box ── */
+    .highlight-box {
+      background: var(--rh-white);
+      border: 1px solid var(--rh-gray-20);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin: 24px 0;
+    }
+
+    .highlight-box.accent {
+      border-left: 4px solid var(--rh-red);
+    }
+
+    .highlight-box h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin-bottom: 12px;
+      color: var(--rh-gray-95);
+    }
+
+    /* ── Outcome metric ── */
+    .outcome-row {
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--rh-gray-20);
+    }
+
+    .outcome-row:last-child { border-bottom: none; }
+
+    .outcome-metric {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--rh-red);
+      min-width: 56px;
+      text-align: right;
+    }
+
+    .outcome-desc {
+      font-size: .9375rem;
+      color: var(--rh-gray-70);
+    }
+
+    .outcome-desc strong { color: var(--rh-gray-95); }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      height: 1px;
+      background: var(--rh-gray-20);
+      margin: 64px 0 0;
+    }
+
+    /* ── Feedback form section ── */
+    .feedback-cta {
+      background: var(--rh-gray-95);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      margin-top: 24px;
+      text-align: center;
+      color: var(--rh-white);
+    }
+
+    .feedback-cta h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      color: var(--rh-white);
+    }
+
+    .feedback-cta p {
+      color: var(--rh-gray-30);
+      margin: 0 auto 24px;
+      max-width: 50ch;
+    }
+
+    .feedback-cta .btn {
+      display: inline-block;
+      font-family: var(--font-text);
+      font-size: .9375rem;
+      font-weight: 600;
+      color: var(--rh-white);
+      background: var(--rh-red);
+      padding: 12px 32px;
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+
+    .feedback-cta .btn:hover {
+      background: var(--rh-red-hover);
+      transform: translateY(-1px);
+    }
+
+    .feedback-embed {
+      margin-top: 32px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--rh-white);
+    }
+
+    .feedback-embed iframe {
+      width: 100%;
+      border: none;
+      border-radius: var(--radius-lg);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--rh-gray-95);
+      color: var(--rh-gray-40);
+      text-align: center;
+      padding: 32px 48px;
+      font-size: .75rem;
+    }
+
+    .footer strong { color: var(--rh-red); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero-inner { padding: 56px 24px 48px; }
+      .wrap       { padding: 0 24px 64px; }
+      .toc-inner  { padding: 0 16px; }
+      .card-grid  { grid-template-columns: 1fr; }
+      .stats-bar  { grid-template-columns: repeat(2, 1fr); }
+      .hero-meta  { gap: 16px; }
+    }
+
+    @media print {
+      .toc { display: none; }
+      .hero { background: var(--rh-white); color: var(--rh-black); }
+      .hero::before { display: none; }
+      .hero h1 span { color: var(--rh-red); }
+      .card { break-inside: avoid; box-shadow: none; border: 1px solid var(--rh-gray-30); }
+      body { background: var(--rh-white); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════ HERO ══════ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Internship review &middot; 2026</div>
+    <h1>Siddhesh <span>Chavan</span></h1>
+    <p class="hero-sub">IT Partner Integration &mdash; Cloudoscope &amp; Entitlement Gateway</p>
+    <div class="hero-meta">
+      <div><strong>Team</strong> &ensp;ITPART</div>
+      <div><strong>Period</strong> &ensp;Jan&ndash;Apr 2026</div>
+      <div><strong>Completed</strong> &ensp;16 items (15 Stories + 1 Epic)</div>
+      <div><strong>Active</strong> &ensp;4 items in flight</div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════ STICKY NAV ══════ -->
+<nav class="toc" aria-label="Page sections">
+  <div class="toc-inner">
+    <a href="#outcomes">Outcomes</a>
+    <a href="#stories">Work log</a>
+    <a href="#feedback">Feedback</a>
+    <a href="#goals">Goals</a>
+    <a href="#accomplishments">Accomplishments</a>
+    <a href="#learned">What I learned</a>
+    <a href="#priorities">Priorities</a>
+    <a href="#team-feedback">Leave feedback</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- ══════ STATS ══════ -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-value accent">20</div><div class="stat-label">Total items</div></div>
+  <div class="stat"><div class="stat-value">16</div><div class="stat-label">Completed</div></div>
+  <div class="stat"><div class="stat-value">4</div><div class="stat-label">Active now</div></div>
+  <div class="stat"><div class="stat-value">1</div><div class="stat-label">Epic owned</div></div>
+  <div class="stat"><div class="stat-value">3</div><div class="stat-label">Prod deploys</div></div>
+  <div class="stat"><div class="stat-value">~12</div><div class="stat-label">Weeks active</div></div>
+</div>
+
+<!-- ══════ OUTCOMES ══════ -->
+<section id="outcomes">
+  <div class="section-label">01 &mdash; Outcomes at a glance</div>
+  <h2>What changed because of this work</h2>
+
+  <div class="highlight-box accent">
+    <div class="outcome-row">
+      <div class="outcome-metric">2</div>
+      <div class="outcome-desc"><strong>Production apps migrated to RAT pipelines</strong> &mdash; Cloudoscope and EGW cut over from legacy platform-pipelines to Release Automation, with secrets in Vault and Argo-managed deployments across 4 environments.</div>
+    </div>
+    <div class="outcome-row">
+      <div class="outcome-metric">6&rarr;3</div>
+      <div class="outcome-desc"><strong>Snowflake finance views consolidated</strong> &mdash; Reduced 6 per-hyperscaler views down to 3 consolidated views (AWS, Azure, GCP), simplifying data access for finance stakeholders and removing logic that belonged in staging.</div>
+    </div>
+    <div class="outcome-row">
+      <div class="outcome-metric">8+</div>
+      <div class="outcome-desc"><strong>Strict AC met on Kafka consumer</strong> &mdash; Delivered smoke check consumer under tight constraints: zero existing code changed, real Kafka broker tests, profile-based config across stage/local/prod.</div>
+    </div>
+    <div class="outcome-row">
+      <div class="outcome-metric">5</div>
+      <div class="outcome-desc"><strong>Provider test classes eliminated</strong> &mdash; Refactored 5 copy-pasted abstract TestContainer classes into a single generic <code>AbstractEntityKafkaPublishingITest</code>, reducing duplication and maintenance burden.</div>
+    </div>
+    <div class="outcome-row">
+      <div class="outcome-metric">1</div>
+      <div class="outcome-desc"><strong>New AWS API capability shipped</strong> &mdash; <code>licenseArn</code> support added to model objects and ResolveCustomer API. Merged to main and deployed to production (CHG4503656).</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ ALL STORIES ══════ -->
+<section id="stories">
+  <hr class="divider">
+  <div class="section-label">02 &mdash; Complete work log</div>
+  <h2>All assigned stories and epics</h2>
+
+  <h3>Active work (4 items)</h3>
+  <div class="rh-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Type</th>
+          <th>Summary</th>
+          <th>Status</th>
+          <th>Reporter</th>
+          <th>Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="key-link">ITPART-2597</span></td>
+          <td>Story</td>
+          <td>Implement and set up SQS DLQ monitoring for Gateway</td>
+          <td><span class="status-badge status-in-progress">In Progress</span></td>
+          <td>Vidhya C.</td>
+          <td>Apr 14</td>
+        </tr>
+        <tr>
+          <td><span class="key-link">ITPART-2570</span></td>
+          <td>Story</td>
+          <td>Backfill agreementId for existing AWS entitlements</td>
+          <td><span class="status-badge status-verification">Verification</span></td>
+          <td>Ravishankar B.</td>
+          <td>Apr 14</td>
+        </tr>
+        <tr>
+          <td><span class="key-link">ITPART-2555</span></td>
+          <td>Story</td>
+          <td>Update onboarding script for EventBridge support</td>
+          <td><span class="status-badge status-verification">Verification</span></td>
+          <td>Cullen G.</td>
+          <td>Apr 9</td>
+        </tr>
+        <tr>
+          <td><span class="key-link">ITPART-2580</span></td>
+          <td>Story</td>
+          <td>Populate both customerId and accountId during entitlement creation</td>
+          <td><span class="status-badge status-todo">To Do</span></td>
+          <td>Ravishankar B.</td>
+          <td>Apr 8</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Completed work (16 items)</h3>
+  <div class="rh-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Key</th>
+          <th>Type</th>
+          <th>Summary</th>
+          <th>Reporter</th>
+          <th>Completed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><span class="key-link">ITPART-2541</span></td><td>Story</td><td>ResolveCustomer API changes supporting licenseArn</td><td>Ravishankar B.</td><td>Apr 13</td></tr>
+        <tr><td>2</td><td><span class="key-link">ITPART-2540</span></td><td>Story</td><td>Identify and add licenseArn to model objects</td><td>Ravishankar B.</td><td>Mar 31</td></tr>
+        <tr><td>3</td><td><span class="key-link">ITPART-2492</span></td><td>Story</td><td>[Snowflake] Create consolidated finance views per hyperscaler</td><td>Vidhya C.</td><td>Mar 25</td></tr>
+        <tr><td>4</td><td><span class="key-link">ITPART-2351</span></td><td>Story</td><td>[Snowflake] GBD reporting: Expose columns for GCP and Azure Sales Ops</td><td>Vidhya C.</td><td>Mar 23</td></tr>
+        <tr><td>5</td><td><span class="key-link">ITPART-2426</span></td><td>Story</td><td>Implement Smoke Check Source Processed Kafka Consumer</td><td>Anthony L.</td><td>Mar 15</td></tr>
+        <tr><td>6</td><td><span class="key-link">ITPART-2408</span></td><td>Story</td><td>Refactor Cloudoscope Integration Test</td><td>Harley P.</td><td>Feb 25</td></tr>
+        <tr><td>7</td><td><span class="key-link">ITPART-1861</span></td><td><strong>Epic</strong></td><td>Onboard Partner Integration apps to RAT pipelines</td><td>Vidhya C.</td><td>Feb 9</td></tr>
+        <tr><td>8</td><td><span class="key-link">ITPART-2389</span></td><td>Story</td><td>End to end testing and validation for EGW preprod and prod</td><td>Ravishankar B.</td><td>Feb 4</td></tr>
+        <tr><td>9</td><td><span class="key-link">ITPART-1881</span></td><td>Story</td><td>Create Argo Apps for Cloudoscope and EGW Production</td><td>Ravishankar B.</td><td>Feb 4</td></tr>
+        <tr><td>10</td><td><span class="key-link">ITPART-1884</span></td><td>Story</td><td>End to end testing and validation for Cloudoscope preprod and prod</td><td>Ravishankar B.</td><td>Feb 4</td></tr>
+        <tr><td>11</td><td><span class="key-link">ITPART-1880</span></td><td>Story</td><td>Create Argo Apps for Cloudoscope and EGW Preprod</td><td>Ravishankar B.</td><td>Feb 2</td></tr>
+        <tr><td>12</td><td><span class="key-link">ITPART-2359</span></td><td>Story</td><td>Update Cloudoscope and EGW service.yaml to use vault paths</td><td>Vidhya C.</td><td>Feb 2</td></tr>
+        <tr><td>13</td><td><span class="key-link">ITPART-1877</span></td><td>Story</td><td>Migrate Cloudoscope Secrets to Vault</td><td>Ravishankar B.</td><td>Jan 30</td></tr>
+        <tr><td>14</td><td><span class="key-link">ITPART-1878</span></td><td>Story</td><td>Migrate EGW Secrets to Vault</td><td>Ravishankar B.</td><td>Jan 30</td></tr>
+        <tr><td>15</td><td><span class="key-link">ITPART-1875</span></td><td>Story</td><td>[Prework] Set up all the necessary tools</td><td>Ravishankar B.</td><td>Jan 30</td></tr>
+        <tr><td>16</td><td><span class="key-link">ITPART-2356</span></td><td>Story</td><td>Siddhesh Partner Integration Onboarding</td><td>Hussain M.</td><td>Jan 29</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════ FEEDBACK ══════ -->
+<section id="feedback">
+  <hr class="divider">
+  <div class="section-label">03 &mdash; Feedback</div>
+  <h2>Feedback received &mdash; key themes and takeaways</h2>
+
+  <h3>Key themes from the body of work</h3>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-eyebrow">Theme 1</div>
+      <h4>Rapidly earned production trust</h4>
+      <p>Production ServiceNow change records (CHG4502107, CHG4502116, CHG4503656) are linked to Siddhesh's stories. Within 6 weeks of onboarding, code was shipping to prod environments. By April, MRs were merging directly into <code>main</code>.</p>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Theme 2</div>
+      <h4>Progressive scope expansion</h4>
+      <p>The trajectory is clear: tooling setup (Jan) &rarr; infrastructure migration (Jan&ndash;Feb) &rarr; independent feature development (Feb&ndash;Mar) &rarr; cross-team data work (Mar) &rarr; API feature delivery (Mar&ndash;Apr) &rarr; DLQ monitoring and backfill (Apr). Each phase added complexity.</p>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Theme 3</div>
+      <h4>Works well across the team</h4>
+      <p>Stories were reported by 5 different people: Ravishankar B., Vidhya C., Harley P., Anthony L., Hussain M., and Cullen G. Collaboration spans Cloudoscope, EGW, Snowflake/dbt, and now EventBridge/SQS work.</p>
+    </div>
+  </div>
+
+  <div class="highlight-box accent" style="margin-top:24px;">
+    <h4>Takeaway</h4>
+    <p>The team communicated trust through actions: steadily increasing scope, assigning production-impacting work, and delegating the end-to-end release cycle. The current active work (SQS DLQ monitoring, agreementId backfill, EventBridge onboarding) represents the most complex stories assigned yet&mdash;indicating continued confidence.</p>
+  </div>
+</section>
+
+<!-- ══════ GOALS ══════ -->
+<section id="goals">
+  <hr class="divider">
+  <div class="section-label">04 &mdash; Goals</div>
+  <h2>Goals and development items</h2>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-eyebrow">Goal 1</div>
+      <h4>Learn the Partner Integration stack</h4>
+      <p>Complete structured onboarding. Set up Helm, ArgoCD CLI, Vault CLI, mpp, and Release Automation pipelines.</p>
+      <span class="card-tag tag-done">Met &mdash; ITPART-2356, 1875</span>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Goal 2</div>
+      <h4>Contribute to infrastructure modernization</h4>
+      <p>Drive the RAT pipeline Epic end-to-end: secrets migration, Argo apps, and E2E validation for Cloudoscope and EGW across preprod and prod.</p>
+      <span class="card-tag tag-epic">Met &mdash; Epic ITPART-1861 (7 stories)</span>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Goal 3</div>
+      <h4>Deliver production features independently</h4>
+      <p>Implement Kafka consumers with strict AC, refactor test suites, and add licenseArn API support to EGW. All merged and deployed.</p>
+      <span class="card-tag tag-done">Met &mdash; ITPART-2426, 2408, 2540, 2541</span>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Goal 4</div>
+      <h4>Work across technology domains</h4>
+      <p>Span Java/Spring Boot, Snowflake/dbt, AWS SDK, Python scripting, and Kubernetes/ArgoCD deployments within a single quarter.</p>
+      <span class="card-tag tag-done">Met &mdash; ITPART-2492, 2351, 2555, and all above</span>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Goal 5 (stretch)</div>
+      <h4>Take on production-critical operational work</h4>
+      <p>Move beyond feature work into data backfills, DLQ monitoring, and EventBridge infrastructure&mdash;work that requires deep system understanding.</p>
+      <span class="card-tag tag-active">In progress &mdash; ITPART-2570, 2597</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ ACCOMPLISHMENTS ══════ -->
+<section id="accomplishments">
+  <hr class="divider">
+  <div class="section-label">05 &mdash; Accomplishments</div>
+  <h2>What did I accomplish?</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">Late January 2026</div>
+      <h4>Onboarding and tooling setup</h4>
+      <p>Completed structured onboarding (ITPART-2356). Set up Helm, ArgoCD CLI, Vault CLI, mpp, and learned Release Automation pipelines from scratch (ITPART-1875). Established the foundation for all subsequent work.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">January&ndash;February 2026</div>
+      <h4>RAT pipeline migration &mdash; Epic ITPART-1861</h4>
+      <p>Drove the full Epic end-to-end: migrated all secrets for Cloudoscope and EGW from <code>paas-encryption-cli</code> to HashiCorp Vault (ITPART-1877, 1878). Updated <code>service.yaml</code> configs to use vault paths (ITPART-2359). Created Argo Application templates for preprod (ITPART-1880) and prod (ITPART-1881). Ran full E2E validation across 4 environments (ITPART-1884, 2389). This was an irreversible cutover&mdash;required high confidence at each step.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">February&ndash;March 2026</div>
+      <h4>Code quality and Kafka consumer</h4>
+      <p>Refactored 5 copy-pasted provider-specific abstract test classes into a single generic <code>AbstractEntityKafkaPublishingITest</code> (ITPART-2408). Then implemented the Smoke Check Source Processed Kafka Consumer (ITPART-2426) under the strictest acceptance criteria of any story&mdash;8+ conditions including zero changes to existing code and real Kafka broker tests. MR merged by Vidhya with full release delegation.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">March 2026</div>
+      <h4>Snowflake data engineering</h4>
+      <p>Consolidated 6 finance views down to 3 per hyperscaler in source and aggregate data products (ITPART-2492). Created a new <code>gbd_marts</code> category exposing Azure (Payments, Transaction History, Orders, Revenue) and GCP (Daily/Monthly Insights) data for Sales Ops (ITPART-2351). Configured service account permissions for stakeholders Alex Raum and Allyson Ferreti. Coordinated across 3 GitLab repos (cloudoscope-dbt, domain-independent, dataproduct-config) with Harley Phung.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">March&ndash;April 2026</div>
+      <h4>AWS licenseArn feature and EventBridge onboarding</h4>
+      <p>Added <code>licenseArn</code> to common model objects (ITPART-2540). Implemented and tested the full ResolveCustomer API flow (ITPART-2541)&mdash;merged to <code>main</code> and deployed to production (CHG4503656). In parallel, updated the AWS onboarding script for EventBridge support (ITPART-2555), now in verification with Cullen Grover.</p>
+    </div>
+    <div class="timeline-item active">
+      <div class="timeline-date">April 2026 &mdash; Now</div>
+      <h4>Backfill, DLQ monitoring, and entitlement enrichment</h4>
+      <p>Currently working on the most complex stories yet: backfilling <code>agreementId</code> for existing AWS entitlements via admin API and Snowflake CSV export (ITPART-2570, in verification with 2 MRs open). Just started SQS DLQ monitoring for Gateway (ITPART-2597)&mdash;implementing error routing, CloudWatch alerting, and SRE playbooks. Also queued: populating both <code>customerId</code> and <code>accountId</code> during entitlement creation (ITPART-2580).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ WHAT I LEARNED ══════ -->
+<section id="learned">
+  <hr class="divider">
+  <div class="section-label">06 &mdash; Growth</div>
+  <h2>What did I learn?</h2>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-eyebrow">DevOps / Platform</div>
+      <h4>Helm, ArgoCD, Vault, mpp, RAT pipelines</h4>
+      <p>Learned from zero during onboarding. Applied immediately to production infrastructure migration of two applications across four environments.</p>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Secrets management</div>
+      <h4>Production secrets lifecycle</h4>
+      <p>The full chain: Bitwarden/OpenShift &rarr; Vault &rarr; service.yaml &rarr; running pods. Understood namespace-level secret management and rotation considerations.</p>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Event-driven architecture</div>
+      <h4>Kafka, SQS, EventBridge</h4>
+      <p>Built Kafka consumers with profile-based config, temporary subscriptions, and real broker testing via TestContainers. Now working with SQS DLQ patterns and EventBridge event rules.</p>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Data engineering</div>
+      <h4>Snowflake, dbt, Dataverse</h4>
+      <p>View consolidation, mart categorization, data product configuration, service account permissioning, and coordination with finance and Sales Ops stakeholders.</p>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Cloud marketplace</div>
+      <h4>AWS Marketplace APIs</h4>
+      <p>ResolveCustomer, GetEntitlements, licenseArn requirements, EventBridge prerequisites, and agreement-based subscription models. Now deepening into DLQ and backfill patterns.</p>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Release and operations</div>
+      <h4>Production deployment lifecycle</h4>
+      <p>ServiceNow change management, Argo-based deployments, Jira release tracking, smoke test validation, and end-to-end production verification.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PRIORITIES ══════ -->
+<section id="priorities">
+  <hr class="divider">
+  <div class="section-label">07 &mdash; Looking ahead</div>
+  <h2>Priorities</h2>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-eyebrow">Priority 1 &mdash; In Progress</div>
+      <h4>Ship SQS DLQ monitoring (ITPART-2597)</h4>
+      <p>Implement consumer DLQ error routing for V2 event processing, CloudWatch alarms, and write SRE playbooks. This is the most complex story assigned yet&mdash;spans AWS SQS, Gateway application code, monitoring, and operational documentation.</p>
+      <span class="card-tag tag-active">Active &mdash; started Apr 14</span>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Priority 2 &mdash; In Verification</div>
+      <h4>Close out agreementId backfill (ITPART-2570)</h4>
+      <p>Two MRs open: one for Cloudoscope backfill logic, one for the Admin API batch runner. Verify in stage, then execute the one-time backfill against production data using Snowflake CSV export.</p>
+      <span class="card-tag tag-active">Verification &mdash; 2 MRs open</span>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Priority 3 &mdash; Queued</div>
+      <h4>Populate customerId + accountId (ITPART-2580)</h4>
+      <p>Ensure both identifiers are captured during entitlement creation and account linking flows. Strengthens data completeness for transfer request support.</p>
+      <span class="card-tag tag-story">To Do</span>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow">Priority 4 &mdash; Under Review</div>
+      <h4>EventBridge CloudFormation stack (ITPART-2555)</h4>
+      <p>CloudFormation template for EventBridge infrastructure is under review from Vidhya Chidambaram's current sprint. Defines the SQS queues, DLQs, EventBridge rules, and IAM permissions needed per AWS publisher account.</p>
+      <span class="card-tag tag-active">Review &mdash; CF template MR open</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ TEAM FEEDBACK ══════ -->
+<section id="team-feedback">
+  <hr class="divider">
+  <div class="section-label">08 &mdash; Your input</div>
+  <h2>Leave feedback</h2>
+
+  <div class="feedback-cta">
+    <h4>How did I do?</h4>
+    <p>I'd love to hear your thoughts on my work this internship. Your feedback helps me grow and will be part of my review.</p>
+
+    <div class="feedback-embed">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeBDhyqFUVFwvxEMfq5qPpsEJqJvbntQO2xx4fTJJVgF_YHTw/viewform?embedded=true" height="900" title="Internship feedback form">Loading form...</iframe>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="footer">
+  <strong>Red Hat</strong> &middot; IT Partner Integration &middot; Internship review generated Apr 15, 2026
+</footer>
+
+</body>
+</html>
