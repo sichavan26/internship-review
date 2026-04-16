@@ -190,11 +190,86 @@
 
     .hero-meta strong { color: var(--rh-white); font-weight: 600; }
 
-    /* ── Sticky nav ── */
+    /* ── Sticky identity bar (visible on scroll only) ── */
+    .sticky-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--rh-gray-95);
+      border-bottom: 1px solid var(--rh-gray-80);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-100%);
+      transition: transform .3s ease;
+    }
+
+    .sticky-bar.visible {
+      transform: translateY(0);
+    }
+
+    .sticky-bar-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .sticky-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid var(--rh-red);
+      box-shadow: 0 0 20px rgba(238,0,0,.3);
+      flex-shrink: 0;
+    }
+
+    .sticky-text {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .sticky-name {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.75rem;
+      color: var(--rh-white);
+      white-space: nowrap;
+      line-height: 1.2;
+    }
+
+    .sticky-name span { color: var(--rh-red); }
+
+    .sticky-team {
+      font-family: var(--font-text);
+      font-size: .875rem;
+      color: var(--rh-gray-30);
+      white-space: nowrap;
+    }
+
+    .sticky-role {
+      font-family: var(--font-mono);
+      font-size: .6875rem;
+      color: var(--rh-gray-40);
+      white-space: nowrap;
+      margin-left: auto;
+    }
+
+    @media (max-width: 768px) {
+      .sticky-bar-inner { padding: 10px 16px; }
+      .sticky-role { display: none; }
+    }
+
+    /* ── Nav tabs ── */
     .toc {
       position: sticky;
-      top: 0;
-      z-index: 100;
+      top: 112px;
+      z-index: 99;
       background: var(--rh-white);
       border-bottom: 1px solid var(--rh-gray-20);
       box-shadow: var(--shadow-sm);
@@ -214,7 +289,7 @@
 
     .toc a {
       display: block;
-      padding: 14px 18px;
+      padding: 12px 16px;
       font-family: var(--font-text);
       font-size: .8125rem;
       font-weight: 600;
@@ -228,6 +303,10 @@
     .toc a:hover {
       color: var(--rh-red);
       border-bottom-color: var(--rh-red);
+    }
+
+    @media (max-width: 768px) {
+      .toc-inner { padding: 0 16px; }
     }
 
     /* ── Main content ── */
@@ -779,6 +858,19 @@
 </header>
 
 <!-- ══════ STICKY NAV ══════ -->
+<!-- Sticky identity bar (appears on scroll) -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-bar-inner">
+    <img src="photo.jpg" alt="Siddhesh Chavan" class="sticky-photo">
+    <div class="sticky-text">
+      <div class="sticky-name">Siddhesh <span>Chavan</span></div>
+      <div class="sticky-team">IT Partner Integration</div>
+    </div>
+    <div class="sticky-role">Internship Review 2026</div>
+  </div>
+</div>
+
+<!-- Nav tabs -->
 <nav class="toc" aria-label="Page sections">
   <div class="toc-inner">
     <a href="#goals">Goals &amp; development</a>
@@ -1163,5 +1255,18 @@
   <strong>Red Hat</strong> &middot; IT Partner Integration &middot; Internship review generated Apr 16, 2026
 </footer>
 
+<script>
+(function() {
+  var bar = document.getElementById('stickyBar');
+  var hero = document.querySelector('.hero');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > hero.offsetHeight) {
+      bar.classList.add('visible');
+    } else {
+      bar.classList.remove('visible');
+    }
+  });
+})();
+</script>
 </body>
 </html>
