@@ -721,18 +721,21 @@
     .outcome-row:last-child { border-bottom: none; }
 
     .outcome-metric {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 1.75rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: .6875rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
       color: var(--rh-white);
       background: var(--rh-red);
-      min-width: 56px;
-      height: 56px;
+      padding: 6px 14px;
+      height: fit-content;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: var(--radius-lg);
+      border-radius: 999px;
       flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .outcome-desc {
@@ -874,7 +877,7 @@
 <nav class="toc" aria-label="Page sections">
   <div class="toc-inner">
     <a href="#goals">Goals &amp; development</a>
-    <a href="#accomplishments">Accomplishments &amp; outcomes</a>
+    <a href="#accomplishments">Achievements &amp; impact</a>
     <a href="#feedback">Feedback</a>
     <a href="#growth">Growth</a>
     <a href="#priorities">Looking ahead</a>
@@ -977,30 +980,30 @@
 <!-- ══════ 02 ACCOMPLISHMENTS & OUTCOMES ══════ -->
 <section id="accomplishments">
   <hr class="divider">
-  <div class="section-label">02 &mdash; Accomplishments &amp; outcomes</div>
-  <h2>What did I accomplish, and why it mattered</h2>
+  <div class="section-label">02 &mdash; Achievements &amp; impact</div>
+  <h2>Achievements &amp; Business Impact</h2>
 
   <div class="highlight-box accent">
     <h4>Outcomes at a glance</h4>
     <div class="outcome-row">
-      <div class="outcome-metric">2</div>
-      <div class="outcome-desc"><strong>Production apps migrated to RAT pipelines</strong> &mdash; Cloudoscope and EGW cut over from legacy platform-pipelines to Release Automation. <em>Why it mattered:</em> The old pipeline was being deprecated. Without this migration, both apps would have lost their deployment path, blocking all future releases.</div>
+      <div class="outcome-metric">DevOps</div>
+      <div class="outcome-desc"><strong>Production apps migrated to RAT pipelines</strong> &mdash; Cloudoscope and EGW cut over from legacy platform-pipelines to Release Automation. <em>How:</em> Migrated all secrets from <code>paas-encryption-cli</code> to HashiCorp Vault, rewired <code>service.yaml</code> configs, built Argo Application templates, and ran E2E validation across preprod and prod for both apps. <em>Why it mattered:</em> The old pipeline was being deprecated. Without this migration, both apps would have lost their deployment path, blocking all future releases.</div>
     </div>
     <div class="outcome-row">
-      <div class="outcome-metric">6&rarr;3</div>
-      <div class="outcome-desc"><strong>Snowflake finance views consolidated</strong> &mdash; Reduced 6 per-hyperscaler views to 3. <em>Why it mattered:</em> Finance stakeholders were confused by duplicated public/private views and inconsistent data. The consolidation gave them a single source of truth per hyperscaler and unblocked Sales Ops reporting for GCP and Azure.</div>
+      <div class="outcome-metric">Data</div>
+      <div class="outcome-desc"><strong>Snowflake finance views consolidated</strong> &mdash; Reduced 6 per-hyperscaler views to 3. <em>How:</em> Unified duplicated public/private views using dbt across 3 GitLab repos, configured service account permissions, and coordinated access for finance and Sales Ops stakeholders. <em>Why it mattered:</em> Finance was confused by inconsistent data across duplicated views. The consolidation gave them a single source of truth per hyperscaler and unblocked Sales Ops reporting for GCP and Azure.</div>
     </div>
     <div class="outcome-row">
-      <div class="outcome-metric">8+</div>
-      <div class="outcome-desc"><strong>Strict AC met on Kafka consumer</strong> &mdash; Delivered smoke check consumer with zero existing code changed and real broker tests. <em>Why it mattered:</em> The team was migrating from UMB to Kafka. This consumer was the first step in decommissioning UMB dependencies, enabling the broader messaging migration.</div>
+      <div class="outcome-metric">Kafka</div>
+      <div class="outcome-desc"><strong>Smoke check consumer delivered</strong> &mdash; Met all strict acceptance criteria with zero existing code changed. <em>How:</em> Built the consumer with Spring profile-based configuration, temporary topic subscriptions, and real broker integration tests via TestContainers. <em>Why it mattered:</em> The team was migrating from UMB to Kafka. This consumer was the first step in decommissioning UMB dependencies, enabling the broader messaging migration.</div>
     </div>
     <div class="outcome-row">
-      <div class="outcome-metric">5</div>
-      <div class="outcome-desc"><strong>Provider test classes eliminated</strong> &mdash; Refactored 5 copy-pasted abstract classes into one generic <code>AbstractEntityKafkaPublishingITest</code>. <em>Why it mattered:</em> Every new provider required duplicating 200+ lines of test setup. Now adding a new provider test is a single class with zero boilerplate.</div>
+      <div class="outcome-metric">Testing</div>
+      <div class="outcome-desc"><strong>Provider test classes eliminated</strong> &mdash; Refactored 5 copy-pasted abstract classes into one generic <code>AbstractEntityKafkaPublishingITest</code>. <em>How:</em> Extracted common test lifecycle, broker setup, and assertion logic into a single generic base class parameterized by entity type. <em>Why it mattered:</em> Every new provider required duplicating 200+ lines of test setup. Now adding a new provider test is a single class with zero boilerplate.</div>
     </div>
     <div class="outcome-row">
-      <div class="outcome-metric">1</div>
-      <div class="outcome-desc"><strong>New AWS API capability shipped</strong> &mdash; <code>licenseArn</code> support in ResolveCustomer API, deployed to production. <em>Why it mattered:</em> AWS is mandating concurrent agreements and licenseArn for all listings after 2026-06-01. Without this, Red Hat would lose the ability to onboard new AWS Marketplace customers.</div>
+      <div class="outcome-metric">AWS</div>
+      <div class="outcome-desc"><strong>New API capability shipped</strong> &mdash; <code>licenseArn</code> support in ResolveCustomer API, deployed to production. <em>How:</em> Added <code>licenseArn</code> to model objects, wired it through the ResolveCustomer flow, validated in stage, and deployed via ServiceNow change record (CHG4503656). <em>Why it mattered:</em> AWS is mandating concurrent agreements and licenseArn for all listings after 2026-06-01. Without this, Red Hat would lose the ability to onboard new AWS Marketplace customers.</div>
     </div>
   </div>
 
@@ -1059,29 +1062,24 @@
   </blockquote>
   <p style="margin-bottom:24px">This feedback shaped how I approach new stories now. Instead of diving into code immediately, I trace the full data flow first, identify where the actual gap is, and validate my approach before writing a line.</p>
 
-  <h3>Key themes</h3>
+  <h3>How I showed up</h3>
 
   <div class="card-grid">
     <div class="card">
-      <div class="card-eyebrow">Red Hat value: Courage</div>
-      <h4>Owning things and taking responsibility</h4>
-      <p>I actively assigned myself stories and owned them end-to-end&mdash;from the RAT pipeline Epic (7 stories, irreversible production cutover) to self-assigning the DLQ monitoring work. I didn't wait for tasks to be handed to me; I had the courage to step up and take responsibility for production-impacting work.</p>
+      <div class="card-eyebrow">Courage</div>
+      <h4>Ownership</h4>
+      <p>Self-assigned stories and owned them end-to-end, including irreversible production cutovers and operational work like DLQ monitoring.</p>
     </div>
     <div class="card">
-      <div class="card-eyebrow">Red Hat value: Collaboration</div>
-      <h4>Working across the entire team</h4>
-      <p>Stories were reported by 6 different people: Ravishankar B., Vidhya C., Harley P., Anthony L., Hussain M., and Cullen G. I collaborated across Cloudoscope, EGW, Snowflake/dbt, the tools repo, and Dataverse&mdash;adapting to each person's working style and domain.</p>
+      <div class="card-eyebrow">Collaboration</div>
+      <h4>Cross-team reach</h4>
+      <p>Worked with 6 different reporters across Cloudoscope, EGW, Snowflake/dbt, and Dataverse&mdash;adapting to each domain and working style.</p>
     </div>
     <div class="card">
-      <div class="card-eyebrow">Red Hat value: Openness</div>
-      <h4>Progressive trust through transparency</h4>
-      <p>Production ServiceNow change records (CHG4502107, CHG4502116, CHG4503656) are linked to my stories. Within 6 weeks of onboarding, code was shipping to prod. By April, MRs were merging directly into <code>main</code>. This trust was built through transparent communication and reliable delivery.</p>
+      <div class="card-eyebrow">Openness</div>
+      <h4>Earned trust</h4>
+      <p>Code shipping to prod within 6 weeks of onboarding. By April, MRs merging directly into <code>main</code> with full release delegation.</p>
     </div>
-  </div>
-
-  <div class="highlight-box accent" style="margin-top:24px;">
-    <h4>Takeaway</h4>
-    <p>The team communicated trust through actions: steadily increasing scope, assigning production-impacting work, and delegating the end-to-end release cycle. The current active work (SQS DLQ monitoring, agreementId backfill, EventBridge onboarding) represents the most complex stories assigned yet&mdash;indicating continued confidence.</p>
   </div>
 </section>
 
@@ -1158,28 +1156,24 @@
 
   <div class="card-grid">
     <div class="card">
-      <div class="card-eyebrow">Priority 1 &mdash; In Progress</div>
-      <h4>Ship SQS DLQ monitoring (<a href="https://redhat.atlassian.net/browse/ITPART-2597" target="_blank" class="key-link">ITPART-2597</a>)</h4>
-      <p>Implement consumer DLQ error routing for V2 event processing, CloudWatch alarms, and write SRE playbooks. Spans AWS SQS, Gateway application code, monitoring, and operational documentation.</p>
-      <span class="card-tag tag-active">Active &mdash; started Apr 14</span>
+      <div class="card-eyebrow">Priority 1</div>
+      <h4>Become an essential contributor to the Concurrent Agreements epic</h4>
+      <p>The AWS concurrent agreements mandate (June 2026 deadline) is the team's one of the highest-priority initiative. I want to own key stories end-to-end&mdash;deepening my understanding of AWS Marketplace APIs, EventBridge event flows, and CloudFormation infrastructure along the way.</p>
     </div>
     <div class="card">
-      <div class="card-eyebrow">Priority 2 &mdash; In Verification</div>
-      <h4>Close out agreementId backfill (<a href="https://redhat.atlassian.net/browse/ITPART-2570" target="_blank" class="key-link">ITPART-2570</a>)</h4>
-      <p>Two MRs open: one for Cloudoscope backfill logic, one for the Admin API batch runner. Verify in stage, then execute the one-time backfill against production data.</p>
-      <span class="card-tag tag-active">Verification &mdash; 2 MRs open</span>
+      <div class="card-eyebrow">Priority 2</div>
+      <h4>Build production observability skills</h4>
+      <p>Move beyond feature delivery into operational maturity&mdash;. The goal is to be comfortable owning production monitoring, not just the code that runs in production.</p>
     </div>
     <div class="card">
-      <div class="card-eyebrow">Priority 3 &mdash; Queued</div>
-      <h4>Populate customerId + accountId (<a href="https://redhat.atlassian.net/browse/ITPART-2580" target="_blank" class="key-link">ITPART-2580</a>)</h4>
-      <p>Ensure both identifiers are captured during entitlement creation and account linking flows. Strengthens data completeness for transfer request support.</p>
-      <span class="card-tag tag-story">To Do</span>
+      <div class="card-eyebrow">Priority 3</div>
+      <h4>Deliver the AI Demo Platform intern project</h4>
+      <p>Ship a working demo that showcases AI-assisted tooling within the team's workflow. This is an opportunity to explore a different problem space, practice presenting technical work, and contribute something visible beyond day-to-day story delivery.</p>
     </div>
     <div class="card">
-      <div class="card-eyebrow">Priority 4 &mdash; Under Review</div>
-      <h4>EventBridge CloudFormation stack (<a href="https://redhat.atlassian.net/browse/ITPART-2555" target="_blank" class="key-link">ITPART-2555</a>)</h4>
-      <p>CloudFormation template for EventBridge infrastructure is under review from Vidhya Chidambaram's current sprint. Defines the SQS queues, DLQs, EventBridge rules, and IAM permissions needed per AWS publisher account.</p>
-      <span class="card-tag tag-active">Review &mdash; CF template MR open</span>
+      <div class="card-eyebrow">Priority 4</div>
+      <h4>Strengthen system-level thinking</h4>
+      <p>Apply Cullen's feedback at a larger scale&mdash;before starting any new work, trace the full data flow, understand cross-service dependencies, and identify the right gap. I want this to become instinct, not a conscious checklist.</p>
     </div>
   </div>
 </section>
@@ -1253,8 +1247,6 @@
 
 <footer class="footer">
   <strong>Red Hat</strong> &middot; IT Partner Integration &middot; Internship review 
-</footer>
-
 <script>
 (function() {
   var bar = document.getElementById('stickyBar');
